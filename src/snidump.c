@@ -393,6 +393,9 @@ int main (int argc, char *argv[])
 	memset(errbuf, 0, PCAP_ERRBUF_SIZE);
 
 	CPRINT_INIT
+		
+	// no buffering for stdout so things like ts work
+	setbuf(stdout, NULL);
 
 	while ((i = getopt(argc, argv, "hf:pi:r:w:")) != -1) {
 		switch(i) {
